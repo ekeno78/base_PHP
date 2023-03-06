@@ -1,3 +1,4 @@
+
 <?php
 // on initialise une boucle avec i partant de 0, on accrémente tant que i est inférieur à 100
 
