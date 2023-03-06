@@ -1,25 +1,24 @@
+
 <?php
-// Initialisation des variables de distance et de temps selon la saisie de l’utilisateur
 
-$distance = readline("Entrez la distance parcourue : ");
-$heure = readline("Entrez le nombre d'heures : ");
-// tant que la variable distance est supérieur à 50 et inférieur à 150, on affiche
+/* Ecrire un programme PHP où L'utilisateur saisit un nombre entier (<= 20).
+L'algorithme affiche une ligne d’étoiles en fonction du nombre saisi.
+ */
 
-while ($distance < 50 || $distance > 150) 
+// on initialise la variable nombre selon la saisie de l’utilisateur
+
+$nombre = readline("Entrez un nombre entier supérieur ou égal à 20 : ");
+
+// on commence la boucle avec i à 0 puis on accrémente 1 (donc une étoile) tant que i est inférieur
+// au nombre saisie
+
+for ($i=0; $i < $nombre; $i++) 
 {
- echo "La distance doit être comprise entre 50 et 150 km\n";
- $distance = readline("Entrez la distance parcourue : ");
+ echo "*";
 }
-// tant que la variable heure est supérieur à 2 et inférieur à 8 on affiche
 
-while ($heure < 2 || $heure > 8) 
-{
- echo "Le nombre d'heures sur la route doit être compris entre 2 et 8 heures.\n";
- $heure = readline("Entrez le nombre d'heures : ");
-}
-// la variable vitesse correspond donc à la division de la variable distance et de la variable heure, on 
-// affiche donc la vitesse moyenne
+// on va à la ligne après chaque étoile
+echo "\n";
 
-$vitesse = $distance / $heure;
-echo "La vitesse moyenne est de $vitesse km/h";
+
 ?>
