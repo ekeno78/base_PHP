@@ -1,28 +1,39 @@
-<?php
-//on initialise une fonction generation avec pour paramètre le nom le prénom l’année et la ville avec 
-//pour ces paramètres des fonctions attribués comme le nom en majuscule ou encore la première 
-//lettre du prénom en majuscule
+<?php 
+// on initialise une fonction salaire prenant en paramètre le département et le nombre de voiture
 
-function generation($nom, $prenom, $annee, $ville)
+function salaire($dep, $nbVoiture)
 {
- $age = date('Y') - $annee;
- $nom = strtoupper($nom);
- $prenom = ucfirst($prenom);
- $ville = ucfirst($ville);
+// si le département correspond au 98 ou au 75 alors la commission est de 700 sinon elle est de 1000
 
-// on renvoie donc la chaîne de caractère suivante 
+    if ($dep == 98 || $dep == 75) 
+    {
+ $commission = 700;
+    } else {
+    $commission = 1000;
+           }
+// si le nombre de voiture vendu est supérieur à 5 alors il obtient une prime de 500e sinon il n'obtient pas de prime
+// pas de prime
 
- return "Nom: $nom \n Prénom: $prenom \n Age: $age \n Ville: $ville";
+    if ($nbVoiture > 5) 
+    {
+ $prime = 500;
+    } else {
+    $prime = 0;
+           }  
+// si le vendeur n’a pas vendu de voiture son salaire est donc de 500e
+    if ($nbVoiture == 0) 
+    {
+ $salaire = 500;
+    } else {
+// sinon le salaire du vendeur correspondra au commission multiplié par le nb de voiture vendu + la 
+// prime 
+ $salaire = $commission * $nbVoiture + $prime;
+           }
+ return $salaire;
 }
+// On initialise les saisies puis on fait appel à la fonction salaire afin d’obtenir le salaire du vendeur
 
-// On initialise les saisies
-
-$nom = readline("Entrez votre nom: ");
-$prenom = readline("Entrez votre prénom: ");
-$annee = readline("Entrez votre année de naissance: ");
-$ville = readline("Entrez votre ville: ");
-
-// On appelle et affiche la fonction
-$resultat = generation ($nom, $prenom, $annee, $ville);
-echo "Résultat: \n" . $resultat;
+$dep = readline("Entrez le département du vendeur : ");
+$nbVoiture = readline("Entrez le nombre de voitures vendues : ");
+echo "Le salaire du vendeur est de " . salaire($dep, $nbVoiture) . " euros.";
 ?>
